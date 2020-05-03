@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/fullpage.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+
+  <body>
+    <div class="nav-container">
+      <div class="brand">
+        <h2>Kawasaki</h2>
+      </div>
+      <div class="links">
+        <p>Top Features</p>
+        <p>Gallery</p>
+        <p>Specs</p>
+        <p>Accesories</p>
+        <p>Offers</p>
+        <p>Comparable Models</p>
+      </div>
+    </div>
+    <div id="fullpage">
+      <section class="section section-1">
+        <div class="image-container">
+          <img src="NoPath — копия (3).png" alt="" />
+        </div>
+        <div class="description-container">
+          <h1>NINJA H2™R</h1>
+          <h5>MSRP $55,000</h5>
+          <p>
+            The Kawasaki Ninja H2™R hypersport motorcycle is an engineering
+            marvel, made possible only through the sourcing of technological
+            expertise from multiple divisions of Kawasaki Heavy Industries, Ltd.
+            (KHI). The result of this unprecedented collaboration is a system of
+            carefully crafted premium components and World Superbike racing
+            inspired next-level electronics that work in concert to create an
+            unbelievably powerful machine—one that’s more than worthy of the
+            legendary H2 name. ​
+          </p>
+        </div>
+
+        <div class="bottom-links">
+          <p>Supercharger</p>
+          <p>Impeller</p>
+          <p>Planetry Gear</p>
+          <p>Engine</p>
+        </div>
+      </section>
+      <section class="section section-2">
+        <div class="section-2-description">
+          <h1>PREMIUM PERFORMANCE</h1>
+          <p>
+            Surrounding the Ninja H2™R motorcycle’s high-output engine are a
+            multitude of premium, high-performance components, selected
+            specifically for unmatchable performance at track speeds. ​​​
+          </p>
+          <div class="specs">
+            <p>
+              - Commonly found in high-performance racing machines, the dog-ring
+              transmission allows for effortless, short shifts
+            </p>
+            <p>
+              - Remote shock preload adjuster makes it easy to adjust settings
+              without tools to suit rider preference
+            </p>
+            <p>
+              - <span>NEW</span> for 2019, dual radial-mount, opposed 4-piston
+              Brembo Stylema® front calipers grip semi-floating 330mm discs for
+              aggressive braking
+            </p>
+            <p>
+              - The star-pattern 5-spoke wheels offer optimum rigidity for
+              high-power performance
+            </p>
+          </div>
+          <a href="#">LEARN MORE</a>
+        </div>
+        <div class="section-2-img">
+          <img src="NoPath — копия (4)@2x.png" alt="" />
+        </div>
+        <div class="bottom-links">
+          <p>Transmission</p>
+          <p>Suspension</p>
+          <p>New Breaks</p>
+          <p>Wheels</p>
+        </div>
+      </section>
+      <section class="section section-3">
+        <div class="center-description">
+          <h1>ADVANCED ELECTRONICS</h1>
+          <p>
+            Key enhancements bring Kawasaki Racing Team (KRT) WorldSBK
+            championship-proven electronics management technology to the Ninja
+            H2™R. This results in precise chassis orientation awareness that
+            assists riders' ability to adapt to a wide range of closed-course
+            riding conditions.​
+          </p>
+        </div>
+        <div class="section-3-img">
+          <img src="NoPath — копия (112)@2x.png" alt="" />
+        </div>
+        <div class="discover-more">
+          <a href="#">DISCOVER MORE</a>
+        </div>
+        <div class="section-3-bottom">
+          <p>Traction Control</p>
+          <p>Launch Control Mode</p>
+          <p>Stearing Damper</p>
+          <p>Quick Shifter</p>
+          <p>Intelligent anti-lock Brake System</p>
+          <p>Engine Break Control</p>
+        </div>
+      </section>
+    </div>
+    <div class="arrows">
+      <div class="arrowUp"></div>
+      <div class="arrowDown"></div>
+    </div>
+
+    <script src="js/jquery-v3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/fullpage.min.js"></script>
+    <script src="js/gsap.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+      const img = document.querySelector(".image-container");
+      const description = document.querySelector(".description-container ");
+      const descriptionH5 = document.querySelector(".description-container h5");
+      const descriptionP = document.querySelector(".description-container p");
+      const tl2 = gsap.timeline();
+      tl2
+        .fromTo(
+          img,
+          {
+            opacity: 0,
+            x: -300,
+            y: -400,
+          },
+          {
+            duration: 1,
+            opacity: 1,
+            y: -400,
+            x: 0,
+            delay: 1,
+            ease: Power2.easeInOut,
+          }
+        )
+        .from(description, {
+          duration: 0.5,
+          opacity: 0,
+          x: 50,
+        });
+      // tl2.from(descriptionH5, {
+      //   duration: 0.5,
+      //   opacity: 0,
+      //   y: 30,
+      //   ease: Power2.easeInOut,
+      // });
+      // tl2.from(descriptionP, {
+      //   duration: 0.5,
+      //   opacity: 0,
+      //   y: 30,
+      //   ease: Power2.easeInOut,
+      // });
+      $(document).ready(function () {
+        new fullpage("#fullpage", {
+          //options here
+          autoScrolling: true,
+
+          navigation: true,
+          navigationPosition: "left",
+
+          onLeave: (origin, destination, direction) => {
+            const section = destination.item;
+            const title = section.querySelectorAll(".description-container h1");
+            const image2 = section.querySelectorAll(".section-2 img");
+            const image1 = section.querySelectorAll(".image-container");
+            const sect2desc = section.querySelectorAll(
+              ".section-2-description"
+            );
+            const tl = gsap.timeline({ delay: 0.3 });
+            tl.from(image1, {
+              duration: 0.5,
+              x: -150,
+            });
+            tl.from(title, {
+              duration: 1,
+              opacity: 0,
+              y: 30,
+            });
+            tl.from(sect2desc, {
+              duration: 0.5,
+              opacity: 0,
+              y: 20,
+            });
+            tl.from(image2, {
+              duration: 0.5,
+              x: "40%",
+              opacity: 0,
+              scaleX: "2",
+              blur: "20px",
+              ease: Power2.easeInOut,
+            });
+          },
+        });
+
+        $(".arrowUp").click(function () {
+          fullpage_api.moveSectionUp();
+        });
+
+        $(".arrowDown").click(function () {
+          fullpage_api.moveSectionDown();
+        });
+      });
+    </script>
+  </body>
+</html>
